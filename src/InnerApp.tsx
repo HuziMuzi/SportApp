@@ -3,7 +3,7 @@ import {
   createNativeStackNavigator,
   NativeStackNavigationOptions,
 } from '@react-navigation/native-stack';
-import {HomeScreen} from '@screens/Home.tsx';
+import {HomeNavigator} from '@screens/HomeNavigator.tsx';
 import {RootStackParamList} from 'types/types.ts';
 
 const RootStack = createNativeStackNavigator<RootStackParamList>();
@@ -15,7 +15,7 @@ const screenOptions: NativeStackNavigationOptions = {
 export function InnerApp(): React.JSX.Element {
   return (
     <RootStack.Navigator screenOptions={screenOptions}>
-      <RootStack.Screen name="home" component={HomeScreen} />
+      <RootStack.Screen name="home" component={HomeNavigator} />
     </RootStack.Navigator>
   );
 }
