@@ -105,3 +105,16 @@ export const defaultTheme: Theme = {
     },
   },
 };
+
+export const darkTheme: Theme = {
+  colorScheme: 'dark',
+  palette: {
+    default: {
+      icon: lightPalette.contrast_300,
+    },
+    primary: {},
+    secondary: {},
+    inverted: {},
+    error: {},
+  },
+};
