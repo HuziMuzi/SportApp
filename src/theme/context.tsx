@@ -1,55 +1,72 @@
-import {createContext, ReactNode} from 'react';
-import {ColorSchemeName, TextStyle, useColorScheme} from 'react-native';
-import {darkTheme, defaultTheme} from 'src/theme/themes.ts';
+import React, {createContext, memo, useCallback, useEffect, useState} from 'react';
 
-export type ColorScheme = 'light' | 'dark';
-export interface ThemeProviderProps {
-  children?: ReactNode;
-  theme?: 'light' | 'dark' | 'system';
+import AsyncStorage from '@react-native-async-storage/async-storage';
+import {useColorScheme} from 'react-native';
+
+import {Color, ThemeColors} from './types';
+import {LIGHT_THEME} from 'src/theme/light.ts';
+import {DARK_THEME} from 'src/theme/dark.ts';
+
+interface ProvidedValue {
+  colors: ThemeColors;
+  onChangeLightTheme: () => void;
+  onChangeDarkTheme: () => void;
 }
 
-export type PaletteColorName =
-    | 'default'
-    | 'primary'
-    | 'secondary'
-    | 'inverted'
-    | 'error'
+export const ThemeContext = createContext<ProvidedValue>({
+  colors: Color,
+  onChangeLightTheme: () => {},
+  onChangeDarkTheme: () => {},
+});
 
-export type PaletteColor = {
-  // background: string
-  // backgroundLight: string
-  // text: string
-  // textLight: string
-  // textInverted: string
-  // link: string
-  // border: string
-  // borderDark: string
-  icon: string
-  [k: string]: string
+interface Props {
+  children?: React.ReactNode;
 }
 
-export type Palette =  Record<PaletteColorName, PaletteColor>
+export const ThemeProvider = memo<Props>(props => {
+  const systemTheme = useColorScheme() === 'dark' ? DARK_THEME : LIGHT_THEME;
+  const [colors, setColor] = useState<ThemeColors>(DARK_THEME);
+  const setSystem = useCallback(() => {
+    setColor(systemTheme);
+  }, [systemTheme]);
 
-export interface Theme {
-  colorScheme: ColorScheme;
-  palette: Palette;
-  // shapes: Shapes;
-  // typography: Typography;
-}
+  const setLightColors = useCallback(() => {
+    setColor(LIGHT_THEME);
+  }, []);
 
-function getTheme(theme: ColorSchemeName) {
-  return theme === 'dark' ? darkTheme : defaultTheme;
-}
-export const ThemeContext = createContext<Theme>(defaultTheme);
+  const setDarkColors = useCallback(() => {
+    setColor(DARK_THEME);
+  }, []);
 
-export const ThemeProvider: React.FC<ThemeProviderProps> = ({
-  theme,
-  children,
-}) => {
-  const colorScheme = useColorScheme();
-  const themeValue = getTheme(theme === 'system' ? colorScheme : theme);
+  const onChangeLightTheme = useCallback(async () => {
+    await AsyncStorage.setItem('currentTheme', 'light');
+    setColor(LIGHT_THEME);
+  }, []);
+  const onChangeDarkTheme = useCallback(async () => {
+    await AsyncStorage.setItem('currentTheme', 'dark');
+    setColor(DARK_THEME);
+  }, []);
+
+  useEffect(() => {
+    AsyncStorage.getItem('currentTheme')
+      .then(theme => {
+        switch (theme) {
+          case 'light':
+            return setLightColors();
+          case 'dark':
+            return setDarkColors();
+          default:
+            return setSystem();
+        }
+      })
+      .catch(error => {
+        console.error("can't get installed theme, error:", error);
+      });
+  }, [systemTheme]);
 
   return (
-    <ThemeContext.Provider value={themeValue}>{children}</ThemeContext.Provider>
+    <ThemeContext.Provider value={{colors, onChangeDarkTheme, onChangeLightTheme}}>
+      {props.children}
+    </ThemeContext.Provider>
   );
-};
+});

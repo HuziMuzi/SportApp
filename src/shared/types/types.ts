@@ -10,6 +10,7 @@ export type TabNavigator = {
 };
 export type RootStackParamList = TabNavigator & {
   home: undefined;
+  greeting: undefined;
 };
 
 export type IconProps = {

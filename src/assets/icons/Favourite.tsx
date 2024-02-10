@@ -2,12 +2,7 @@ import React from 'react';
 import Svg, {Path} from 'react-native-svg';
 import {IconProps} from 'types/types.ts';
 
-export const Favourite = ({
-  width = 32,
-  height = 31,
-  style,
-  color,
-}: IconProps) => {
+export const Favourite = ({width = 32, height = 31, style, color}: IconProps) => {
   return (
     <Svg
       width={width}

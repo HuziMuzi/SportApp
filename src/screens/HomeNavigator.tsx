@@ -1,17 +1,17 @@
-import {
-  BottomTabNavigationOptions,
-  createBottomTabNavigator,
-} from '@react-navigation/bottom-tabs';
+import {BottomTabNavigationOptions, createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import {MainScreen} from 'src/screens/Main.tsx';
 import {FavouritesScreen} from 'src/screens/Favourites.tsx';
 import {ExercisesScreen} from '@screens/Exercises.tsx';
 import {ProfileScreen} from '@screens/Profile.tsx';
 import {TabNavigator} from 'types/types.ts';
 import {useMemo} from 'react';
-import {Home} from 'src/assets/icons/Home.tsx';
 import {Favourite} from 'src/assets/icons/Favourite.tsx';
 import {Exercise} from 'src/assets/icons/Exercise.tsx';
 import {Profile} from 'src/assets/icons/Profile.tsx';
+import {useTheme} from 'src/theme/hooks.ts';
+import {RouteProp} from '@react-navigation/native';
+import {Home} from 'src/assets/icons/Home.tsx';
+import {ThemeColors} from 'src/theme/types.ts';
 
 const Tab = createBottomTabNavigator<TabNavigator>();
 
@@ -24,67 +24,44 @@ const icon = {
   profile: Profile,
 };
 
-const HomeScreenTabBarIcon = ({
-  focused,
-  route,
-}: {
-  focused: boolean;
-  route: routing;
-}) => {
+const HomeScreenTabBarIcon = ({route, color}: {color: string; route: routing}) => {
   const Icon = useMemo(() => icon[route], [route]);
-  return <Icon color={focused ? '#ED7A43' : '#B9B9B9'} />;
+  return <Icon color={color} />;
 };
 
-const tabBarIcon = (route: routing) => (props: {focused: boolean}) =>
-  <HomeScreenTabBarIcon focused={props.focused} route={route} />;
+const tabBarIcon = (route: routing) => (props: {color: string}) =>
+  <HomeScreenTabBarIcon route={route} color={props.color} />;
 
-const mainOptions = {
+const tabScreenOption = (
+  route: RouteProp<TabNavigator, keyof TabNavigator>,
+  colors: ThemeColors,
+): BottomTabNavigationOptions => ({
   headerShown: false,
   tabBarShowLabel: false,
-  tabBarIcon: tabBarIcon('main'),
-};
-
-const favouritesOptions = {
-  headerShown: false,
-  tabBarShowLabel: false,
-  tabBarIcon: tabBarIcon('favourites'),
-};
-
-const exercisesOptions = {
-  headerShown: false,
-  tabBarShowLabel: false,
-  tabBarIcon: tabBarIcon('exercises'),
-};
-
-const profileOptions: BottomTabNavigationOptions = {
-  headerShown: false,
-  tabBarShowLabel: false,
-  tabBarIcon: tabBarIcon('profile'),
-};
+  tabBarIcon: tabBarIcon(route.name),
+  tabBarActiveBackgroundColor: colors.strong_gray,
+  tabBarActiveTintColor: colors.main,
+  tabBarStyle: {
+    backgroundColor: colors.strong_gray,
+  },
+});
 
 export const HomeNavigator = () => {
+  const {colors} = useTheme();
+
   return (
-    <Tab.Navigator initialRouteName="main">
-      <Tab.Screen
-        options={() => ({...mainOptions})}
-        name="main"
-        component={MainScreen}
-      />
-      <Tab.Screen
-        options={() => ({...favouritesOptions})}
-        name="favourites"
-        component={FavouritesScreen}
-      />
-      <Tab.Screen
-        options={() => ({...exercisesOptions})}
-        name="exercises"
-        component={ExercisesScreen}
-      />
-      <Tab.Screen
-        options={() => ({...profileOptions})}
-        name="profile"
-        component={ProfileScreen}
-      />
+    <Tab.Navigator
+      sceneContainerStyle={{
+        backgroundColor: colors.bg1,
+      }}
+      screenOptions={({route}) => ({
+        ...tabScreenOption(route, colors),
+      })}
+      initialRouteName="main">
+      <Tab.Screen name="main" component={MainScreen} />
+      <Tab.Screen name="favourites" component={FavouritesScreen} />
+      <Tab.Screen name="exercises" component={ExercisesScreen} />
+      <Tab.Screen name="profile" component={ProfileScreen} />
     </Tab.Navigator>
   );
 };

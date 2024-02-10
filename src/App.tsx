@@ -7,11 +7,11 @@ import {ThemeProvider} from 'src/theme/context.tsx';
 function App(): React.JSX.Element {
   return (
     <SafeAreaProvider>
-      {/*<ThemeProvider>*/}
-      <NavigationContainer>
-        <InnerApp />
-      </NavigationContainer>
-      {/*</ThemeProvider>*/}
+      <ThemeProvider>
+        <NavigationContainer>
+          <InnerApp />
+        </NavigationContainer>
+      </ThemeProvider>
     </SafeAreaProvider>
   );
 }

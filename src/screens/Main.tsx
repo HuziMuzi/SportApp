@@ -1,7 +1,19 @@
-import React from 'react';
-import {Text, View} from 'react-native';
+import React, {useEffect, useState} from 'react';
+import {Switch, Text, View} from 'react-native';
+import {useTheme} from 'src/theme/hooks.ts';
 
 export const MainScreen = () => {
+  const {onChangeLightTheme, onChangeDarkTheme, colors} = useTheme();
+  const [isSwitch, setIsSwitch] = useState(false);
+
+  useEffect(() => {
+    if (isSwitch) {
+      onChangeDarkTheme();
+    } else {
+      onChangeLightTheme();
+    }
+  }, [isSwitch]);
+
   return (
     <View
       style={{
@@ -10,15 +22,13 @@ export const MainScreen = () => {
         justifyContent: 'center',
         gap: 10,
       }}>
-      {/*<Text>Main</Text>*/}
-      <View
-        style={{
-          width: 150,
-          height: 150,
-          backgroundColor: `hsl(${211}, 20%, 4%)`,
+      <Text>Change Color</Text>
+      <Switch
+        value={isSwitch}
+        onChange={() => {
+          setIsSwitch(!isSwitch);
         }}
       />
-      <View style={{width: 150, height: 150, backgroundColor: '#0C151F'}} />
     </View>
   );
 };
