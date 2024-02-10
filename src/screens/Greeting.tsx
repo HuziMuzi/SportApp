@@ -9,7 +9,9 @@ export const GreetingScreen = () => {
     <View style={{flex: 1, alignItems: 'center', justifyContent: 'center'}}>
       <Text>Greeting</Text>
       <TouchableOpacity onPress={() => navigate('home')}>
-        <Text>Понятно</Text>
+        <Text style={{color: 'white', fontSize: 50, fontFamily: 'Montserrat-SemiBold'}}>
+          Понятно
+        </Text>
       </TouchableOpacity>
     </View>
   );
