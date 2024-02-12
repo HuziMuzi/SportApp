@@ -6,14 +6,6 @@ export const MainScreen = () => {
   const {onChangeLightTheme, onChangeDarkTheme, colors} = useTheme();
   const [isSwitch, setIsSwitch] = useState(false);
 
-  useEffect(() => {
-    if (isSwitch) {
-      onChangeDarkTheme();
-    } else {
-      onChangeLightTheme();
-    }
-  }, [isSwitch]);
-
   return (
     <View
       style={{
