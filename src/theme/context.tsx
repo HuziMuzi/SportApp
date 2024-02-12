@@ -47,22 +47,23 @@ export const ThemeProvider = memo<Props>(props => {
     setColor(DARK_THEME);
   }, []);
 
-  useEffect(() => {
-    AsyncStorage.getItem('currentTheme')
-      .then(theme => {
-        switch (theme) {
-          case 'light':
-            return setLightColors();
-          case 'dark':
-            return setDarkColors();
-          default:
-            return setSystem();
-        }
-      })
-      .catch(error => {
-        console.error("can't get installed theme, error:", error);
-      });
-  }, [systemTheme]);
+  // useEffect(() => {
+  //   AsyncStorage.getItem('currentTheme')
+  //     .then(theme => {
+  //       console.debug('theme', theme);
+  //       switch (theme) {
+  //         case 'light':
+  //           return setLightColors();
+  //         case 'dark':
+  //           return setDarkColors();
+  //         default:
+  //           return setSystem();
+  //       }
+  //     })
+  //     .catch(error => {
+  //       console.error("can't get installed theme, error:", error);
+  //     });
+  // }, [systemTheme]);
 
   return (
     <ThemeContext.Provider value={{colors, onChangeDarkTheme, onChangeLightTheme}}>

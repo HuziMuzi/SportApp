@@ -3,6 +3,7 @@ import {ImageStyle, TextStyle, ViewStyle} from 'react-native';
 export interface ThemeColors {
   bg1: string;
   icon: string;
+  text: string;
   main: string;
   strong_gray: string;
 }
@@ -16,5 +17,6 @@ export enum Color {
   bg1 = 'bg1',
   icon = 'icon',
   main = 'main',
+  text = 'text',
   strong_gray = 'strong_gray',
 }
