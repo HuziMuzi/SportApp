@@ -1,10 +1,12 @@
 import React, {useEffect, useState} from 'react';
-import {Switch, Text, View} from 'react-native';
+import {Button, Switch, Text, View} from 'react-native';
 import {useTheme} from 'src/theme/hooks.ts';
+import {useTypedNavigation} from "src/shared/lib/hooks/useTypeNavigation.ts";
 
 export const MainScreen = () => {
   const {onChangeLightTheme, onChangeDarkTheme, colors} = useTheme();
   const [isSwitch, setIsSwitch] = useState(false);
+  const {navigate} = useTypedNavigation()
 
   return (
     <View
@@ -14,13 +16,7 @@ export const MainScreen = () => {
         justifyContent: 'center',
         gap: 10,
       }}>
-      <Text>Change Color</Text>
-      <Switch
-        value={isSwitch}
-        onChange={() => {
-          setIsSwitch(!isSwitch);
-        }}
-      />
+      <Button title={'go back'} onPress={() => navigate('greeting')}/>
     </View>
   );
 };
