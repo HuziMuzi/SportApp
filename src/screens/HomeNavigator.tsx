@@ -12,36 +12,53 @@ import {useTheme} from 'src/theme/hooks.ts';
 import {RouteProp} from '@react-navigation/native';
 import {Home} from 'src/assets/icons/Home.tsx';
 import {ThemeColors} from 'src/theme/types.ts';
+import {Text} from 'src/ui/Text.tsx';
 
 const Tab = createBottomTabNavigator<TabNavigator>();
 
 type routing = 'main' | 'favourites' | 'exercises' | 'profile';
 
-const icon = {
-  main: Home,
-  favourites: Favourite,
-  exercises: Exercise,
-  profile: Profile,
+const tabData = {
+  main: {
+    icon: Home,
+    label: 'Главная',
+  },
+  favourites: {
+    icon: Favourite,
+    label: 'Избранное',
+  },
+  exercises: {
+    icon: Exercise,
+    label: 'Упражнение',
+  },
+  profile: {
+    icon: Profile,
+    label: 'Главная',
+  },
 };
 
 const HomeScreenTabBarIcon = ({route, color}: {color: string; route: routing}) => {
-  const Icon = useMemo(() => icon[route], [route]);
+  const Icon = useMemo(() => tabData[route].icon, [route]);
   return <Icon color={color} />;
 };
 
 const tabBarIcon = (route: routing) => (props: {color: string}) =>
   <HomeScreenTabBarIcon route={route} color={props.color} />;
 
+const tabBarLabel = (route: routing) => () => <Text m_p3>{tabData[route].label}</Text>;
+
 const tabScreenOption = (
   route: RouteProp<TabNavigator, keyof TabNavigator>,
   colors: ThemeColors,
 ): BottomTabNavigationOptions => ({
   headerShown: false,
-  tabBarShowLabel: false,
+  // tabBarShowLabel: false,
   tabBarIcon: tabBarIcon(route.name),
+  tabBarLabel: tabBarLabel(route.name),
   tabBarActiveBackgroundColor: colors.strong_gray,
   tabBarActiveTintColor: colors.main,
   tabBarStyle: {
+    borderTopWidth: 0,
     backgroundColor: colors.strong_gray,
   },
 });
