@@ -31,17 +31,17 @@ export const Greeting = () => {
 
   return (
     <SafeAreaView bottom_color={colors.bg1}>
-      <ScrollView contentContainerStyle={{paddingHorizontal: 16}}>
-        <View style={{gap: 35}}>
+      <ScrollView contentContainerStyle={styles.contentContainer}>
+        <View style={styles.content}>
           <View>
-            <Text m_h3 center style={{marginBottom: 30}}>
+            <Text m_h3 center style={styles.welcomeText}>
               Добро пожаловать!
             </Text>
             <Text m_p center>
               *Название* - ваш персональный тренер и удобный справочник упражнений!
             </Text>
           </View>
-          <View style={{rowGap: 20, flex: 1}}>
+          <View style={styles.cardsContainer}>
             <View style={styles.card}>
               <View style={styles.label_one}>
                 <Text m_h3>1</Text>
@@ -56,8 +56,8 @@ export const Greeting = () => {
                 <Text m_h3>2</Text>
               </View>
               <Text m_p center>
-                Вы также можете добавить актуальные замеры вашего веса и ключевых областей тела для
-                отслеживания изменения физической формы:
+                Вы также можете добавить актуальные замеры вашего тела для отслеживания изменения
+                физической формы:
               </Text>
               <Button onPress={() => {}} label="Перейти в дневник" />
             </View>
@@ -72,6 +72,18 @@ export const Greeting = () => {
 };
 
 const rawStyles = StyleSheet.create({
+  contentContainer: {
+    paddingHorizontal: 16,
+    flexGrow: 1,
+  },
+  welcomeText: {
+    marginBottom: 20,
+  },
+  content: {
+    flex: 1,
+    gap: 20,
+    justifyContent: 'space-between',
+  },
   agreeBtn: {
     paddingHorizontal: 22,
     paddingVertical: 15,
@@ -80,14 +92,16 @@ const rawStyles = StyleSheet.create({
     alignItems: 'center',
     alignSelf: 'center',
   },
-
+  cardsContainer: {
+    rowGap: 20,
+  },
   card: {
-    gap: 17,
+    gap: 15,
     backgroundColor: Color.strong_gray,
     borderRadius: 15,
-    paddingHorizontal: 22,
-    paddingTop: 20,
-    paddingBottom: 22,
+    paddingHorizontal: 15,
+    paddingTop: 15,
+    paddingBottom: 20,
   },
   label_one: {
     alignItems: 'center',
