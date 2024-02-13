@@ -8,7 +8,7 @@ import {useTheme} from 'src/theme/hooks.ts';
 type Props = {
   children: React.ReactNode;
   bottom_color?: ColorValue;
-  style: StyleProp<ViewStyle>;
+  style?: StyleProp<ViewStyle>;
 };
 
 export function SafeAreaView({children, bottom_color, style}: Props) {
