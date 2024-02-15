@@ -7,6 +7,7 @@ import {useThematicStyles} from 'src/theme/hooks.ts';
 import {Color} from 'src/theme/types.ts';
 import {RadioButtons} from 'src/ui/RadioButtons/RadioButtons.tsx';
 import {Button} from 'src/ui/Button/Button.tsx';
+import {s} from 'src/shared/lib/styles.ts';
 
 const DATA = [
   {
@@ -31,17 +32,17 @@ export const Greeting = () => {
 
   return (
     <SafeAreaView bottom_color={colors.bg1}>
-      <ScrollView contentContainerStyle={styles.contentContainer}>
-        <View style={styles.content}>
+      <ScrollView contentContainerStyle={[s.px16, s.flexGrow1]}>
+        <View style={[s.flex1, s.justifyBetween, s.gp20]}>
           <View>
-            <Text m_h3 center style={styles.welcomeText}>
+            <Text m_h3 center style={s.mb20}>
               Добро пожаловать!
             </Text>
             <Text m_p center>
               *Название* - ваш персональный тренер и удобный справочник упражнений!
             </Text>
           </View>
-          <View style={styles.cardsContainer}>
+          <View style={s.rgp20}>
             <View style={styles.card}>
               <View style={styles.label_one}>
                 <Text m_h3>1</Text>
@@ -72,18 +73,6 @@ export const Greeting = () => {
 };
 
 const rawStyles = StyleSheet.create({
-  contentContainer: {
-    paddingHorizontal: 16,
-    flexGrow: 1,
-  },
-  welcomeText: {
-    marginBottom: 20,
-  },
-  content: {
-    flex: 1,
-    gap: 20,
-    justifyContent: 'space-between',
-  },
   agreeBtn: {
     paddingHorizontal: 22,
     paddingVertical: 15,
@@ -91,9 +80,6 @@ const rawStyles = StyleSheet.create({
     borderRadius: 15,
     alignItems: 'center',
     alignSelf: 'center',
-  },
-  cardsContainer: {
-    rowGap: 20,
   },
   card: {
     gap: 15,

@@ -45,14 +45,18 @@ const HomeScreenTabBarIcon = ({route, color}: {color: string; route: routing}) =
 const tabBarIcon = (route: routing) => (props: {color: string}) =>
   <HomeScreenTabBarIcon route={route} color={props.color} />;
 
-const tabBarLabel = (route: routing) => () => <Text m_p3>{tabData[route].label}</Text>;
+const tabBarLabel = (route: routing) => (props: {color: string}) =>
+  (
+    <Text m_p3 style={{color: props.color}}>
+      {tabData[route].label}
+    </Text>
+  );
 
 const tabScreenOption = (
   route: RouteProp<TabNavigator, keyof TabNavigator>,
   colors: ThemeColors,
 ): BottomTabNavigationOptions => ({
   headerShown: false,
-  // tabBarShowLabel: false,
   tabBarIcon: tabBarIcon(route.name),
   tabBarLabel: tabBarLabel(route.name),
   tabBarActiveBackgroundColor: colors.strong_gray,

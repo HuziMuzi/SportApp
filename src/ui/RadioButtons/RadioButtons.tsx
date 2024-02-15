@@ -2,6 +2,7 @@ import React from 'react';
 import {StyleSheet, TouchableOpacity, View} from 'react-native';
 import {Text} from 'src/ui/Text.tsx';
 import {useTheme} from 'src/theme/hooks.ts';
+import {s} from 'src/shared/lib/styles.ts';
 
 type Item = {
   label: string;
@@ -15,9 +16,8 @@ type Props = {
 };
 
 export const RadioButtons = ({data, onChangeValue, value}: Props) => {
-  const {colors} = useTheme();
   return (
-    <View style={{flexDirection: 'row'}}>
+    <View style={s.flexRow}>
       {data.map((el, i) => (
         <Button
           key={i}
@@ -36,21 +36,19 @@ const Button = ({label, onPress, isActive}) => {
   return (
     <TouchableOpacity
       onPress={onPress}
-      style={{
-        flexGrow: 1,
-
-        paddingHorizontal: 8,
-        paddingVertical: 10,
-        borderRadius: 7,
-        alignItems: 'center',
-        justifyContent: 'center',
-        backgroundColor: isActive ? colors.main : undefined,
-      }}>
+      style={[styles.button, isActive && {backgroundColor: colors.main}]}>
       <Text m_p>{label}</Text>
     </TouchableOpacity>
   );
 };
 
-const rawStyles = StyleSheet.create({
-  container: {},
+const styles = StyleSheet.create({
+  button: {
+    flexGrow: 1,
+    paddingHorizontal: 8,
+    paddingVertical: 10,
+    borderRadius: 7,
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
 });
