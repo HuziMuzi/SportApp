@@ -1,5 +1,5 @@
 import React from 'react';
-import {Button, Image, StyleSheet, View} from 'react-native';
+import {Button, StyleSheet, View} from 'react-native';
 import {Text} from 'src/ui/Text.tsx';
 import {useTypedNavigation} from 'src/shared/lib/hooks/useTypeNavigation.ts';
 import {HeaderImage} from 'src/components/Main/HeaderImage.tsx';

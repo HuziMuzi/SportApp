@@ -61,6 +61,9 @@ const tabScreenOption = (
   tabBarLabel: tabBarLabel(route.name),
   tabBarActiveBackgroundColor: colors.strong_gray,
   tabBarActiveTintColor: colors.main,
+  tabBarItemStyle: {
+    paddingVertical: 3,
+  },
   tabBarStyle: {
     borderTopWidth: 0,
     backgroundColor: colors.strong_gray,
