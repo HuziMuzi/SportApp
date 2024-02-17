@@ -5,6 +5,8 @@ export interface ThemeColors {
   icon: string;
   text: string;
   main: string;
+  dimmed: string;
+  placeholder: string;
   strong_gray: string;
 }
 
@@ -18,5 +20,7 @@ export enum Color {
   icon = 'icon',
   main = 'main',
   text = 'text',
+  dimmed = 'dimmed',
+  placeholder = 'placeholder',
   strong_gray = 'strong_gray',
 }

@@ -1,36 +1,20 @@
 import React from 'react';
-import {Image, View} from 'react-native';
+import {Image, StyleSheet, View} from 'react-native';
 import {Text} from 'src/ui/Text.tsx';
+import {useSafeAreaInsets} from 'react-native-safe-area-context';
+import {useTheme} from 'src/theme/hooks.ts';
+import {s} from 'src/shared/lib/styles.ts';
 
 export const HeaderImage = () => {
+  const {top} = useSafeAreaInsets();
+  const {colors} = useTheme();
+  const height = 130 + top;
+
   return (
-    <View
-      style={{
-        width: '100%',
-        height: 200,
-        // top: -10,
-        overflow: 'hidden',
-        borderBottomRightRadius: 30,
-        borderBottomLeftRadius: 30,
-        marginBottom: 20,
-      }}>
-      <Image
-        style={{
-          width: '100%',
-          height: 200,
-          position: 'absolute',
-        }}
-        source={require('../../assets/images/headerImage.png')}
-      />
-      <View
-        style={{
-          backgroundColor: 'rgba(0,0,0,0.51)',
-          flex: 1,
-          alignItems: 'flex-end',
-          justifyContent: 'flex-end',
-          padding: 20,
-        }}>
-        <Text m_p style={{zIndex: 1}} color="text">
+    <View style={[styles.container, {height}]}>
+      <Image style={styles.image} source={require('../../assets/images/headerImage.png')} />
+      <View style={[styles.descriptionContainer, {backgroundColor: colors.dimmed}]}>
+        <Text m_p style={s.z1} color="text">
           "Спорт — дорога к укреплению не только тела, но и духа. В каждой тренировке — мощная
           инвестиция в своё будущее и здоровье."
         </Text>
@@ -38,3 +22,24 @@ export const HeaderImage = () => {
     </View>
   );
 };
+
+const styles = StyleSheet.create({
+  container: {
+    width: '100%',
+    overflow: 'hidden',
+    borderBottomRightRadius: 30,
+    borderBottomLeftRadius: 30,
+    marginBottom: 20,
+  },
+  image: {
+    width: '100%',
+    height: 200,
+    position: 'absolute',
+  },
+  descriptionContainer: {
+    flex: 1,
+    alignItems: 'center',
+    justifyContent: 'flex-end',
+    padding: 15,
+  },
+});

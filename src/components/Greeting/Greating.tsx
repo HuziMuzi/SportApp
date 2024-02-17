@@ -8,21 +8,7 @@ import {Color} from 'src/theme/types.ts';
 import {RadioButtons} from 'src/ui/RadioButtons/RadioButtons.tsx';
 import {Button} from 'src/ui/Button/Button.tsx';
 import {s} from 'src/shared/lib/styles.ts';
-
-const DATA = [
-  {
-    label: 'Не указано',
-    value: 'unspecified',
-  },
-  {
-    label: 'Женский',
-    value: 'female',
-  },
-  {
-    label: 'Мужской',
-    value: 'Male',
-  },
-];
+import {GENDER_DATA} from 'src/shared/lib/consts.ts';
 
 export const Greeting = () => {
   const {navigate} = useTypedNavigation();
@@ -50,7 +36,7 @@ export const Greeting = () => {
               <Text m_p center>
                 Для адаптации тренировок вы можете указать свой пол:
               </Text>
-              <RadioButtons data={DATA} value={gender} onChangeValue={setGender} />
+              <RadioButtons data={GENDER_DATA} value={gender} onChangeValue={setGender} />
             </View>
             <View style={styles.card}>
               <View style={styles.label_one}>

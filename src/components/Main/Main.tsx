@@ -4,6 +4,8 @@ import {Text} from 'src/ui/Text.tsx';
 import {useTypedNavigation} from 'src/shared/lib/hooks/useTypeNavigation.ts';
 import {HeaderImage} from 'src/components/Main/HeaderImage.tsx';
 import {s} from 'src/shared/lib/styles.ts';
+import {SearchInput} from 'src/components/Main/SearchInput.tsx';
+import {MainTitle} from 'src/ui/MainTitle.tsx';
 
 export const Main = () => {
   const {navigate} = useTypedNavigation();
@@ -12,9 +14,9 @@ export const Main = () => {
     <View style={styles.container}>
       <HeaderImage />
       <View style={[s.px16, s.rgp20]}>
-        <Text m_h3>Главная</Text>
+        <MainTitle title="Главная" />
         <Text m_p>Выберите группу мышц</Text>
-        <View />
+        <SearchInput />
         <Button title={'go back'} onPress={() => navigate('greeting')} />
       </View>
     </View>

@@ -14,6 +14,10 @@ export const s = StyleSheet.create({
   hidden: {display: 'none'},
   dimmed: {opacity: 0.5},
 
+  // font family
+  ffMR: {fontFamily: 'Montserrat-Regular'},
+  // fontFamily: 'Montserrat-SemiBold'
+
   // font weights
   fw600: {fontWeight: '600'},
   bold: {fontWeight: 'bold'},
@@ -108,4 +112,7 @@ export const s = StyleSheet.create({
   textLeft: {textAlign: 'left'},
   textCenter: {textAlign: 'center'},
   textRight: {textAlign: 'right'},
+
+  //zIndex
+  z1: {zIndex: 1},
 });
