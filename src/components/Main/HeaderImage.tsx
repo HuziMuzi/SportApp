@@ -7,8 +7,8 @@ import {s} from 'src/shared/lib/styles.ts';
 
 export const HeaderImage = () => {
   const {top} = useSafeAreaInsets();
-  const {colors} = useTheme();
   const height = 130 + top;
+  const {colors} = useTheme();
 
   return (
     <View style={[styles.container, {height}]}>
@@ -25,6 +25,7 @@ export const HeaderImage = () => {
 
 const styles = StyleSheet.create({
   container: {
+    // position: 'absolute',
     width: '100%',
     overflow: 'hidden',
     borderBottomRightRadius: 30,

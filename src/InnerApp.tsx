@@ -7,6 +7,8 @@ import {HomeNavigator} from '@screens/HomeNavigator.tsx';
 import {RootStackParamList} from 'types/types.ts';
 import {GreetingScreen} from '@screens/Greeting.tsx';
 import {useTheme} from 'src/theme/hooks.ts';
+import {View} from 'react-native';
+import {useSafeAreaInsets} from 'react-native-safe-area-context';
 
 const RootStack = createNativeStackNavigator<RootStackParamList>();
 
