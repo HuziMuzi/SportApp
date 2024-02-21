@@ -1,6 +1,7 @@
 // navigation
 
 import {StyleProp, ViewStyle} from 'react-native';
+import {LegExercisesScreen} from '@screens/LegExercises.tsx';
 
 export type TabNavigator = {
   main: undefined;
@@ -11,6 +12,7 @@ export type TabNavigator = {
 export type RootStackParamList = TabNavigator & {
   home: undefined;
   greeting: undefined;
+  legExercises: undefined;
 };
 
 export type IconProps = {

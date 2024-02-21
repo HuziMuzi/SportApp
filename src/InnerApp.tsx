@@ -7,8 +7,7 @@ import {HomeNavigator} from '@screens/HomeNavigator.tsx';
 import {RootStackParamList} from 'types/types.ts';
 import {GreetingScreen} from '@screens/Greeting.tsx';
 import {useTheme} from 'src/theme/hooks.ts';
-import {View} from 'react-native';
-import {useSafeAreaInsets} from 'react-native-safe-area-context';
+import {LegExercisesScreen} from '@screens/LegExercises.tsx';
 
 const RootStack = createNativeStackNavigator<RootStackParamList>();
 
@@ -23,13 +22,24 @@ export function InnerApp(): React.JSX.Element {
     <RootStack.Navigator
       initialRouteName="greeting"
       screenOptions={{
-        ...screenOptions,
+        headerStyle: {
+          backgroundColor: colors.bg1,
+        },
+        headerTitleStyle: {color: colors.text},
         contentStyle: {
           backgroundColor: colors.bg1,
         },
       }}>
-      <RootStack.Screen name="greeting" component={GreetingScreen} />
-      <RootStack.Screen name="home" component={HomeNavigator} />
+      <RootStack.Group screenOptions={screenOptions}>
+        <RootStack.Screen name="greeting" component={GreetingScreen} />
+        <RootStack.Screen name="home" component={HomeNavigator} />
+      </RootStack.Group>
+
+      <RootStack.Screen
+        name="legExercises"
+        options={{headerTitle: 'Упражнения на спину'}}
+        component={LegExercisesScreen}
+      />
     </RootStack.Navigator>
   );
 }

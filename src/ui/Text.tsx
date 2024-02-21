@@ -26,6 +26,7 @@ export type TextProps = Omit<RNTextProps, 'style' | 'children'> & {
   m_h3?: boolean;
   m_p?: boolean;
   m_p2?: boolean;
+  m_p2_bold?: boolean;
   m_p3?: boolean;
   m_title?: boolean;
   center?: boolean;
@@ -40,6 +41,7 @@ export const Text = ({
   center,
   m_p,
   m_p2,
+  m_p2_bold,
   m_p3,
   m_h1,
   m_h2,
@@ -79,6 +81,7 @@ export const Text = ({
         m_h3 && styles.m_h3,
         m_p && styles.m_p,
         m_p2 && styles.m_p2,
+        m_p2_bold && styles.m_p2_bold,
         m_p3 && styles.m_p3,
         style,
         !!color && {color: colors[color]},
@@ -110,6 +113,10 @@ const rawStyles = StyleSheet.create({
   m_p2: {
     fontSize: 14,
     fontFamily: 'Montserrat-Regular',
+  },
+  m_p2_bold: {
+    fontSize: 14,
+    fontFamily: 'Montserrat-SemiBold',
   },
   m_p3: {
     fontSize: 10,

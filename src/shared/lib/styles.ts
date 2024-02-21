@@ -86,6 +86,7 @@ export const s = StyleSheet.create({
   // gaps
   rgp20: {rowGap: 20},
   gp20: {gap: 20},
+  gp10: {gap: 10},
 
   // flex
   flexRow: {flexDirection: 'row'},
