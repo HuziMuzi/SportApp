@@ -3,16 +3,19 @@ import {Image, TouchableOpacity, View} from 'react-native';
 import {Text} from 'src/ui/Text.tsx';
 import {useTheme} from 'src/theme/hooks.ts';
 
-type Props = {};
+type Props = {
+  height?: number;
+  onLayoutHeight?: (value: number) => void;
+};
 
-export const Description = ({}: Props) => {
+export const Description = ({height, onLayoutHeight}: Props) => {
   const {colors} = useTheme();
   const [switchTab, setSwitchTab] = useState(false);
 
   const toggleTab = () => setSwitchTab(!switchTab);
 
   return (
-    <View style={{paddingHorizontal: 10, position: 'absolute', gap: 10, width: '100%'}}>
+    <View style={{padding: 10, gap: 10, width: '100%'}}>
       <Image
         style={{width: '100%', height: 184, borderRadius: 10}}
         src={

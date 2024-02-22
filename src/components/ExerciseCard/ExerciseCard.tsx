@@ -16,15 +16,19 @@ export const ExerciseCard = ({}: Props) => {
   const {colors} = useTheme();
   const [expanded, setExpanded] = useState(false);
   const animation = useSharedValue(0);
+  const [height, setHeight] = useState(0);
 
-  const animatedStyles = useAnimatedStyle(() => ({
-    height: animation.value,
-  }));
+  const animatedStyles = useAnimatedStyle(() => {
+    animation.value = withTiming(expanded ? height : 0, {duration: 300});
+    return {
+      height: animation.value,
+      borderBottomLeftRadius: 15,
+      borderBottomRightRadius: 15,
+    };
+  }, [height, expanded]);
 
   const toggleExpand = () => {
-    const expand = !expanded;
     setExpanded(!expanded);
-    animation.value = withTiming(expand ? 550 : 0, {duration: 300});
   };
 
   return (
@@ -35,7 +39,6 @@ export const ExerciseCard = ({}: Props) => {
           height: 76,
           borderTopLeftRadius: 15,
           borderTopRightRadius: 15,
-
           borderBottomLeftRadius: expanded ? 0 : 15,
           borderBottomRightRadius: expanded ? 0 : 15,
           padding: 10,
@@ -68,7 +71,16 @@ export const ExerciseCard = ({}: Props) => {
       </Pressable>
       <Animated.View
         style={[{backgroundColor: colors.strong_gray, overflow: 'hidden'}, animatedStyles]}>
-        <Description />
+        <View
+          style={{position: 'absolute', width: '100%'}}
+          onLayout={e => {
+            const layoutHeight = e.nativeEvent.layout.height;
+            if (layoutHeight >= 0 && height !== layoutHeight) {
+              setHeight(layoutHeight);
+            }
+          }}>
+          <Description height={height} onLayoutHeight={setHeight} />
+        </View>
       </Animated.View>
     </View>
   );
