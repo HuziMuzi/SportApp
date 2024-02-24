@@ -37,7 +37,8 @@ deploy_tg:
     script:
         - >-
 
-            curl -X POST -H "Content-Type:multipart/form-data" 
-            -F chat_id=$TG_CHAT_ID 
-            -F document=@android/app/build/outputs/apk/release/app-release.apk" 
-            "https://api.telegram.org/bot${TG_BOT_TOKEN}/sendDocument"
+            curl
+            -F chat_id=$TG_CHAT_ID
+            -F document=@android/app/build/outputs/apk/release/app-release.apk
+            https://api.telegram.org/bot${TG_BOT_TOKEN}/sendDocument
+            
