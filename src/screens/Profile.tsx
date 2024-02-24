@@ -1,10 +1,14 @@
 import React from 'react';
-import {Text, View} from 'react-native';
+import {View} from 'react-native';
+import {useSafeAreaInsets} from 'react-native-safe-area-context';
+import {MainTitle} from 'src/shared/ui';
 
 export const ProfileScreen = () => {
+  const {top} = useSafeAreaInsets();
+
   return (
-    <View style={{flex: 1, alignItems: 'center', justifyContent: 'center'}}>
-      <Text>Profile</Text>
+    <View style={{flex: 1, marginTop: top, paddingHorizontal: 16, paddingTop: 20}}>
+      <MainTitle title="Profile" />
     </View>
   );
 };

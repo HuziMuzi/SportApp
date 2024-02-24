@@ -1,6 +1,6 @@
 import {ColorValue, View} from 'react-native';
 import {useSafeAreaInsets} from 'react-native-safe-area-context';
-import {ThemeColors} from 'src/theme/types.ts';
+import {ThemeColors} from 'src/shared/lib/theme/types.ts';
 
 export function Bar({color}: {color?: ColorValue}) {
   const {top, left, right} = useSafeAreaInsets();

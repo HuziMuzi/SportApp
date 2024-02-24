@@ -1,0 +1,22 @@
+import {ThemeColors} from 'src/shared/lib/theme/types.ts';
+import {
+  LIGHT_ACCENT3,
+  LIGHT_BG_1,
+  LIGHT_DIMMED,
+  LIGHT_ICON,
+  LIGHT_MAIN,
+  LIGHT_PLACEHOLDER,
+  LIGHT_STRONG_GRAY,
+  LIGHT_TEXT_1,
+} from 'src/shared/lib/theme/colors.ts';
+
+export const LIGHT_THEME: ThemeColors = {
+  bg1: LIGHT_BG_1,
+  icon: LIGHT_ICON,
+  text: LIGHT_TEXT_1,
+  main: LIGHT_MAIN,
+  dimmed: LIGHT_DIMMED,
+  accent3: LIGHT_ACCENT3,
+  placeholder: LIGHT_PLACEHOLDER,
+  strong_gray: LIGHT_STRONG_GRAY,
+};
