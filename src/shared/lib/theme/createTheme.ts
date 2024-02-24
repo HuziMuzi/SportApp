@@ -1,4 +1,4 @@
-import {Color, NamedStyles, ThemeColors} from './types';
+import {Color, NamedStyles, ThemeColors} from './types.ts';
 
 export function createTheme<T extends NamedStyles<T> | NamedStyles<any>>(
   styles: T | NamedStyles<T>,

@@ -1,7 +1,7 @@
 import React from 'react';
 import {TouchableOpacity} from 'react-native';
-import {useTheme} from 'src/theme/hooks.ts';
-import {Text} from 'src/ui/Text.tsx';
+import {useTheme} from 'src/shared/lib/theme/hooks.ts';
+import {Text} from 'src/shared/ui';
 
 type Props = {
   label?: string;

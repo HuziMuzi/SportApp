@@ -1,8 +1,8 @@
 import {useContext} from 'react';
 
-import {ThemeContext} from './context';
-import {createTheme} from './createTheme';
-import {NamedStyles} from './types';
+import {ThemeContext} from './context.tsx';
+import {createTheme} from './createTheme.ts';
+import {NamedStyles} from './types.ts';
 
 export const useTheme = () => {
   return useContext(ThemeContext);

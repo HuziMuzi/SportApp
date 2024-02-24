@@ -12,3 +12,14 @@ export const GENDER_DATA = [
     value: 'Male',
   },
 ];
+
+export const FAVOURITES_TABS = [
+  {
+    label: 'Избранное',
+    value: 'favourites',
+  },
+  {
+    label: 'План на сегодня',
+    value: 'today',
+  },
+];

@@ -3,7 +3,7 @@ import React from 'react';
 import {ColorValue, StyleProp, StyleSheet, View, ViewStyle} from 'react-native';
 
 import {Bar} from './Bar';
-import {useTheme} from 'src/theme/hooks.ts';
+import {useTheme} from 'src/shared/lib/theme/hooks.ts';
 
 type Props = {
   children: React.ReactNode;

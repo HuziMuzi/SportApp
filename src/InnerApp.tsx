@@ -5,8 +5,8 @@ import {
 } from '@react-navigation/native-stack';
 import {HomeNavigator} from '@screens/HomeNavigator.tsx';
 import {RootStackParamList} from 'types/types.ts';
-import {GreetingScreen} from '@screens/Greeting.tsx';
-import {useTheme} from 'src/theme/hooks.ts';
+import {GreetingScreen} from '@screens/Greeting/Greeting.tsx';
+import {useTheme} from 'src/shared/lib/theme/hooks.ts';
 import {LegExercisesScreen} from '@screens/LegExercises.tsx';
 
 const RootStack = createNativeStackNavigator<RootStackParamList>();

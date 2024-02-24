@@ -7,15 +7,12 @@ import {
   StyleSheet,
   View,
 } from 'react-native';
-import {Text} from 'src/ui/Text.tsx';
+import {MainTitle, Text} from 'src/shared/ui';
 import {useTypedNavigation} from 'src/shared/lib/hooks/useTypeNavigation.ts';
 import {HeaderImage} from 'src/components/Main/HeaderImage.tsx';
-import {s} from 'src/shared/lib/styles.ts';
-import {SearchInput} from 'src/components/Main/SearchInput.tsx';
-import {MainTitle} from 'src/ui/MainTitle.tsx';
-import {useTheme} from 'src/theme/hooks.ts';
+import {s} from 'src/shared/lib';
+import {SearchInput} from 'src/components/SearchInput.tsx';
 import {MuscleGroups} from 'src/components/MuscleGroups/MuscleGroups.tsx';
-import Animated, {useSharedValue} from 'react-native-reanimated';
 
 export const Main = () => {
   // const height = useSharedValue(130);

@@ -1,17 +1,10 @@
 import React, {useState} from 'react';
-import {Pressable, TouchableOpacity, View} from 'react-native';
-import {MainTitle} from 'src/ui/MainTitle.tsx';
+import {Pressable, View} from 'react-native';
 import {useSafeAreaInsets} from 'react-native-safe-area-context';
-import {Text} from 'src/ui/Text.tsx';
+import {MainTitle, Text} from 'src/shared/ui';
 import Icon from 'react-native-vector-icons/FontAwesome';
-import {useTheme} from 'src/theme/hooks.ts';
-import Animated, {
-  Extrapolation,
-  interpolate,
-  useAnimatedStyle,
-  useSharedValue,
-  withTiming,
-} from 'react-native-reanimated';
+import {useTheme} from 'src/shared/lib/theme/hooks.ts';
+import Animated, {useAnimatedStyle, useSharedValue, withTiming} from 'react-native-reanimated';
 
 type Props = {};
 

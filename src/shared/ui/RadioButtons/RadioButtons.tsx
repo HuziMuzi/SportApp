@@ -1,8 +1,8 @@
 import React from 'react';
-import {StyleSheet, TouchableOpacity, View} from 'react-native';
-import {Text} from 'src/ui/Text.tsx';
-import {useTheme} from 'src/theme/hooks.ts';
-import {s} from 'src/shared/lib/styles.ts';
+import {StyleProp, StyleSheet, TouchableOpacity, View, ViewStyle} from 'react-native';
+import {useTheme} from 'src/shared/lib/theme/hooks.ts';
+import {s} from 'src/shared/lib';
+import {Text} from './../Text.tsx';
 
 type Item = {
   label: string;
@@ -12,17 +12,20 @@ type Item = {
 type Props = {
   data: Item[];
   value: string;
+  style?: StyleProp<ViewStyle>;
+  containerStyle?: StyleProp<ViewStyle>;
   onChangeValue: (value: string) => void;
 };
 
-export const RadioButtons = ({data, onChangeValue, value}: Props) => {
+export const RadioButtons = ({data, onChangeValue, value, containerStyle, style}: Props) => {
   return (
-    <View style={s.flexRow}>
+    <View style={[s.flexRow, containerStyle]}>
       {data.map((el, i) => (
         <Button
           key={i}
           isActive={value === el.value}
           label={el.label}
+          style={style}
           onPress={() => onChangeValue(el.value)}
         />
       ))}
@@ -30,13 +33,13 @@ export const RadioButtons = ({data, onChangeValue, value}: Props) => {
   );
 };
 
-const Button = ({label, onPress, isActive}) => {
+const Button = ({label, onPress, isActive, style}) => {
   const {colors} = useTheme();
 
   return (
     <TouchableOpacity
       onPress={onPress}
-      style={[styles.button, isActive && {backgroundColor: colors.main}]}>
+      style={[styles.button, isActive && {backgroundColor: colors.main}, style]}>
       <Text m_p>{label}</Text>
     </TouchableOpacity>
   );
@@ -44,7 +47,7 @@ const Button = ({label, onPress, isActive}) => {
 
 const styles = StyleSheet.create({
   button: {
-    flexGrow: 1,
+    flex: 1,
     paddingHorizontal: 8,
     paddingVertical: 10,
     borderRadius: 7,

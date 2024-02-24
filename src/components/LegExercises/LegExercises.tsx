@@ -1,8 +1,7 @@
 import React from 'react';
-import {ScrollView, View} from 'react-native';
-import {Text} from 'src/ui/Text.tsx';
+import {ScrollView} from 'react-native';
 import {SafeAreaView} from 'react-native-safe-area-context';
-import {s} from 'src/shared/lib/styles.ts';
+import {s} from 'src/shared/lib';
 import {ExerciseCard} from 'src/components/ExerciseCard/ExerciseCard.tsx';
 
 type Props = {};

@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import {Image, TouchableOpacity, View} from 'react-native';
-import {Text} from 'src/ui/Text.tsx';
-import {useTheme} from 'src/theme/hooks.ts';
+import {Text} from 'src/shared/ui';
+import {useTheme} from 'src/shared/lib/theme/hooks.ts';
 
 type Props = {};
 
@@ -12,7 +12,13 @@ export const Description = ({}: Props) => {
   const toggleTab = () => setSwitchTab(!switchTab);
 
   return (
-    <View style={{paddingHorizontal: 10, position: 'absolute', gap: 10, width: '100%'}}>
+    <View
+      style={{
+        paddingHorizontal: 10,
+        position: 'absolute',
+        gap: 10,
+        width: '100%',
+      }}>
       <Image
         style={{width: '100%', height: 184, borderRadius: 10}}
         src={

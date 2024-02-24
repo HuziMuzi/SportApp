@@ -1,9 +1,9 @@
 import React from 'react';
 import {Image, StyleSheet, View} from 'react-native';
-import {Text} from 'src/ui/Text.tsx';
+import {Text} from 'src/shared/ui';
 import {useSafeAreaInsets} from 'react-native-safe-area-context';
-import {useTheme} from 'src/theme/hooks.ts';
-import {s} from 'src/shared/lib/styles.ts';
+import {useTheme} from 'src/shared/lib/theme/hooks.ts';
+import {s} from 'src/shared/lib';
 
 export const HeaderImage = () => {
   const {top} = useSafeAreaInsets();

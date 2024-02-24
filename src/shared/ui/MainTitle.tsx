@@ -1,12 +1,12 @@
 import React from 'react';
-import {StyleProp, ViewStyle} from 'react-native';
-import {Text} from 'src/ui/Text.tsx';
-import {Color} from 'src/theme/types.ts';
+import {StyleProp, TextStyle} from 'react-native';
+import {Text} from './Text.tsx';
+import {Color} from 'src/shared/lib/theme/types.ts';
 
 type Props = {
   title: string;
   color?: Color;
-  style?: StyleProp<ViewStyle>;
+  style?: StyleProp<TextStyle>;
 };
 
 export const MainTitle = ({title, color, style}: Props) => {

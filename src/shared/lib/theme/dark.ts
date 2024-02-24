@@ -1,4 +1,4 @@
-import {ThemeColors} from 'src/theme/types.ts';
+import {ThemeColors} from 'src/shared/lib/theme/types.ts';
 import {
   DARK_ACCENT3,
   DARK_BG_1,
@@ -8,7 +8,7 @@ import {
   DARK_PLACEHOLDER,
   DARK_STRONG_GRAY,
   DARK_TEXT_1,
-} from 'src/theme/colors.ts';
+} from 'src/shared/lib/theme/colors.ts';
 
 export const DARK_THEME: ThemeColors = {
   bg1: DARK_BG_1,

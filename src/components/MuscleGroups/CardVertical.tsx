@@ -1,6 +1,6 @@
 import React from 'react';
 import {View} from 'react-native';
-import {useTheme} from 'src/theme/hooks.ts';
+import {useTheme} from 'src/shared/lib/theme/hooks.ts';
 
 type Props = {};
 

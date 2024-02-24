@@ -1,6 +1,6 @@
 import {BottomTabNavigationOptions, createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import {MainScreen} from 'src/screens/Main.tsx';
-import {FavouritesScreen} from 'src/screens/Favourites.tsx';
+import {FavouritesScreen} from '@screens/Favourites/Favourites.tsx';
 import {ExercisesScreen} from '@screens/Exercises.tsx';
 import {ProfileScreen} from '@screens/Profile.tsx';
 import {TabNavigator} from 'types/types.ts';
@@ -8,11 +8,11 @@ import {useMemo} from 'react';
 import {Favourite} from 'src/assets/icons/Favourite.tsx';
 import {Exercise} from 'src/assets/icons/Exercise.tsx';
 import {Profile} from 'src/assets/icons/Profile.tsx';
-import {useTheme} from 'src/theme/hooks.ts';
+import {useTheme} from 'src/shared/lib/theme/hooks.ts';
 import {RouteProp} from '@react-navigation/native';
 import {Home} from 'src/assets/icons/Home.tsx';
-import {ThemeColors} from 'src/theme/types.ts';
-import {Text} from 'src/ui/Text.tsx';
+import {ThemeColors} from 'src/shared/lib/theme/types.ts';
+import {Text} from 'src/shared/ui';
 
 const Tab = createBottomTabNavigator<TabNavigator>();
 

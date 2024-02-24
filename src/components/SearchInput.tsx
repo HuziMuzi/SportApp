@@ -2,8 +2,8 @@ import React, {useCallback, useEffect, useState} from 'react';
 import {StyleSheet, TextInput, TouchableOpacity, View} from 'react-native';
 import AntDesign from 'react-native-vector-icons/AntDesign';
 import FontAwesome6 from 'react-native-vector-icons/FontAwesome6';
-import {useTheme} from 'src/theme/hooks.ts';
-import {s} from 'src/shared/lib/styles.ts';
+import {useTheme} from 'src/shared/lib/theme/hooks.ts';
+import {s} from 'src/shared/lib';
 
 type Props = {};
 

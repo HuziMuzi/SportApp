@@ -1,5 +1,5 @@
 import React, {useMemo} from 'react';
-import {useThematicStyles} from 'src/theme/hooks.ts';
+import {useThematicStyles} from 'src/shared/lib/theme/hooks.ts';
 import {
   StyleProp,
   StyleSheet,
@@ -8,7 +8,7 @@ import {
   TextStyle,
   ViewStyle,
 } from 'react-native';
-import {Color} from 'src/theme/types';
+import {Color} from 'src/shared/lib/theme/types';
 
 export type Props =
   | {

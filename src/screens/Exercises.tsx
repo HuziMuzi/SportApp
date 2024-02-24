@@ -1,7 +1,7 @@
 import React from 'react';
 import {View} from 'react-native';
 import {useSafeAreaInsets} from 'react-native-safe-area-context';
-import {MainTitle} from 'src/ui/MainTitle.tsx';
+import {MainTitle} from 'src/shared/ui';
 
 export const ExercisesScreen = () => {
   const {top} = useSafeAreaInsets();

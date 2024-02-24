@@ -3,9 +3,9 @@ import React, {createContext, memo, useCallback, useEffect, useState} from 'reac
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import {useColorScheme} from 'react-native';
 
-import {Color, ThemeColors} from './types';
-import {LIGHT_THEME} from 'src/theme/light.ts';
-import {DARK_THEME} from 'src/theme/dark.ts';
+import {Color, ThemeColors} from './types.ts';
+import {LIGHT_THEME} from 'src/shared/lib/theme/light.ts';
+import {DARK_THEME} from 'src/shared/lib/theme/dark.ts';
 
 interface ProvidedValue {
   colors: ThemeColors;

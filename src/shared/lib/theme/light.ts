@@ -1,4 +1,4 @@
-import {ThemeColors} from 'src/theme/types.ts';
+import {ThemeColors} from 'src/shared/lib/theme/types.ts';
 import {
   LIGHT_ACCENT3,
   LIGHT_BG_1,
@@ -8,7 +8,7 @@ import {
   LIGHT_PLACEHOLDER,
   LIGHT_STRONG_GRAY,
   LIGHT_TEXT_1,
-} from 'src/theme/colors.ts';
+} from 'src/shared/lib/theme/colors.ts';
 
 export const LIGHT_THEME: ThemeColors = {
   bg1: LIGHT_BG_1,
