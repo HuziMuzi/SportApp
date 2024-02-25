@@ -19,6 +19,9 @@ export const DARK_MAIN = `hsl(${ORANGE_HUE}, 83%, 60%)`;
 export const LIGHT_STRONG_GRAY = `hsl(${BLUE_HUE}, 10%, 20%)`;
 export const DARK_STRONG_GRAY = `hsl(${BLUE_HUE}, 10%, 20%)`;
 
+export const LIGHT_GRAY = '#333333';
+export const DARK_GRAY = '#333333';
+
 export const LIGHT_DIMMED = '#0000007F';
 export const DARK_DIMMED = '#0000007F';
 

@@ -24,6 +24,7 @@ export const Settings = ({}: Props) => {
           padding: 15,
           borderRadius: 15,
           gap: 10,
+          backgroundColor: colors.strong_gray,
         }}>
         <Text m_p>Изменить язык</Text>
         <RadioButtons style={s.py5} data={LANGUAGES} value={lang} onChangeValue={setLang} />
@@ -37,6 +38,7 @@ export const Settings = ({}: Props) => {
           padding: 15,
           borderRadius: 15,
           gap: 10,
+          backgroundColor: colors.strong_gray,
         }}>
         <AntDesign name="sharealt" color={colors.main} size={20} />
         <Text m_p>Поделиться с другом</Text>
@@ -50,6 +52,7 @@ export const Settings = ({}: Props) => {
           padding: 15,
           borderRadius: 15,
           gap: 10,
+          backgroundColor: colors.strong_gray,
         }}>
         <AntDesign name="logout" color={colors.main} size={20} />
         <Text m_p>Выйти</Text>

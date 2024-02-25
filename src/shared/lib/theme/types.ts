@@ -9,6 +9,7 @@ export interface ThemeColors {
   accent3: string;
   dimmed: string;
   placeholder: string;
+  gray: string;
   strong_gray: string;
 }
 
@@ -26,5 +27,6 @@ export enum Color {
   accent3 = 'accent3',
   dimmed = 'dimmed',
   placeholder = 'placeholder',
+  gray = 'gray',
   strong_gray = 'strong_gray',
 }

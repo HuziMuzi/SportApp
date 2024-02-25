@@ -9,13 +9,11 @@ type Props = {};
 export const LegExercises = ({}: Props) => {
   return (
     <SafeAreaView style={[s.px16, s.flex1]}>
-      <ScrollView contentContainerStyle={{gap: 10}}>
+      <ScrollView contentContainerStyle={{gap: 10}} showsVerticalScrollIndicator={false}>
         <ExerciseCard />
         <ExerciseCard />
         <ExerciseCard />
       </ScrollView>
-
-      {/*<Text>legExercises</Text>*/}
     </SafeAreaView>
   );
 };

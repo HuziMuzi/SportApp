@@ -6,13 +6,13 @@ import {ProfileScreen} from '@screens/Profile.tsx';
 import {TabNavigator} from 'types/types.ts';
 import {useMemo} from 'react';
 import {Favourite} from 'src/assets/icons/Favourite.tsx';
-import {Exercise} from 'src/assets/icons/Exercise.tsx';
 import {Profile} from 'src/assets/icons/Profile.tsx';
 import {useTheme} from 'src/shared/lib/theme/hooks.ts';
 import {RouteProp} from '@react-navigation/native';
 import {Home} from 'src/assets/icons/Home.tsx';
 import {ThemeColors} from 'src/shared/lib/theme/types.ts';
 import {Text} from 'src/shared/ui';
+import {Diary} from 'src/assets/icons/Diary.tsx';
 
 const Tab = createBottomTabNavigator<TabNavigator>();
 
@@ -24,7 +24,7 @@ const tabData = {
     label: 'Главная',
   },
   diary: {
-    icon: Exercise,
+    icon: Diary,
     label: 'Дневник',
   },
   favourites: {
@@ -65,7 +65,7 @@ const tabScreenOption = (
     paddingVertical: 3,
   },
   tabBarStyle: {
-    borderTopWidth: 0,
+    borderTopColor: colors.placeholder,
     backgroundColor: colors.strong_gray,
   },
 });

@@ -4,6 +4,7 @@ import {
   DARK_ACCENT3,
   DARK_BG_1,
   DARK_DIMMED,
+  DARK_GRAY,
   DARK_ICON,
   DARK_MAIN,
   DARK_PLACEHOLDER,
@@ -19,6 +20,7 @@ export const DARK_THEME: ThemeColors = {
   accent1: DARK_ACCENT1,
   accent3: DARK_ACCENT3,
   dimmed: DARK_DIMMED,
+  gray: DARK_GRAY,
   placeholder: DARK_PLACEHOLDER,
   strong_gray: DARK_STRONG_GRAY,
 };

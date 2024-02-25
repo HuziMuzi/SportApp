@@ -21,6 +21,7 @@ export const Profile = ({}: Props) => {
           borderRadius: 15,
           borderColor: colors.accent1,
           borderWidth: 1,
+          backgroundColor: colors.strong_gray,
         }}>
         <Text m_p>Изменить пол</Text>
         <RadioButtons
