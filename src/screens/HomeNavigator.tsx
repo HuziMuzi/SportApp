@@ -1,7 +1,7 @@
 import {BottomTabNavigationOptions, createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import {MainScreen} from 'src/screens/Main.tsx';
 import {FavouritesScreen} from '@screens/Favourites/Favourites.tsx';
-import {ExercisesScreen} from '@screens/Exercises.tsx';
+import {DiaryScreen} from '@screens/Diary.tsx';
 import {ProfileScreen} from '@screens/Profile.tsx';
 import {TabNavigator} from 'types/types.ts';
 import {useMemo} from 'react';
@@ -16,24 +16,24 @@ import {Text} from 'src/shared/ui';
 
 const Tab = createBottomTabNavigator<TabNavigator>();
 
-type routing = 'main' | 'favourites' | 'exercises' | 'profile';
+type routing = 'main' | 'diary' | 'favourites' | 'profile';
 
 const tabData = {
   main: {
     icon: Home,
     label: 'Главная',
   },
+  diary: {
+    icon: Exercise,
+    label: 'Дневник',
+  },
   favourites: {
     icon: Favourite,
     label: 'Избранное',
   },
-  exercises: {
-    icon: Exercise,
-    label: 'Упражнение',
-  },
   profile: {
     icon: Profile,
-    label: 'Главная',
+    label: 'Профиль',
   },
 };
 
@@ -83,8 +83,8 @@ export const HomeNavigator = () => {
       })}
       initialRouteName="main">
       <Tab.Screen name="main" component={MainScreen} />
+      <Tab.Screen name="diary" component={DiaryScreen} />
       <Tab.Screen name="favourites" component={FavouritesScreen} />
-      <Tab.Screen name="exercises" component={ExercisesScreen} />
       <Tab.Screen name="profile" component={ProfileScreen} />
     </Tab.Navigator>
   );

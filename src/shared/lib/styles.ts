@@ -82,6 +82,7 @@ export const s = StyleSheet.create({
   pb20: {paddingBottom: 20},
   px5: {paddingHorizontal: 5},
   px16: {paddingHorizontal: 16},
+  py5: {paddingVertical: 5},
 
   // gaps
   rgp20: {rowGap: 20},

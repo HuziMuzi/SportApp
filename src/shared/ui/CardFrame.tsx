@@ -6,7 +6,7 @@ type Props = {
   children: React.ReactNode;
 };
 
-export const Card = ({children}: Props) => {
+export const CardFrame = ({children}: Props) => {
   const {colors} = useTheme();
 
   return <View style={[styles.card, {backgroundColor: colors.strong_gray}]}>{children}</View>;

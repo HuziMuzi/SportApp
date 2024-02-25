@@ -1,13 +1,13 @@
 import React from 'react';
 import {Button, Text} from 'src/shared/ui';
-import {Card} from '@screens/Greeting/ui/Card.tsx';
-import {RoundLabel} from '@screens/Greeting/ui/RoundLabel.tsx';
+import {CardFrame} from 'src/shared/ui/CardFrame.tsx';
+import {RoundLabel} from '@screens/Greeting/RoundLabel.tsx';
 
 type Props = {};
 
 export const DiaryCard = ({}: Props) => {
   return (
-    <Card>
+    <CardFrame>
       <RoundLabel label="2" />
       <Text m_p center>
         Для адаптации тренировок вы можете указать свой пол:
@@ -17,6 +17,6 @@ export const DiaryCard = ({}: Props) => {
         формы:
       </Text>
       <Button m_p onPress={() => {}} label="Перейти в дневник" />
-    </Card>
+    </CardFrame>
   );
 };
