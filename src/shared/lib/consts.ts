@@ -23,3 +23,14 @@ export const FAVOURITES_TABS = [
     value: 'today',
   },
 ];
+
+export const PROFILE_TABS = [
+  {
+    label: 'Профиль',
+    value: 'profile',
+  },
+  {
+    label: 'Приложеие',
+    value: 'settings',
+  },
+];

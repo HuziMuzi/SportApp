@@ -1,39 +1,39 @@
 import {BottomTabNavigationOptions, createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import {MainScreen} from 'src/screens/Main.tsx';
 import {FavouritesScreen} from '@screens/Favourites/Favourites.tsx';
-import {ExercisesScreen} from '@screens/Exercises.tsx';
+import {DiaryScreen} from '@screens/Diary.tsx';
 import {ProfileScreen} from '@screens/Profile.tsx';
 import {TabNavigator} from 'types/types.ts';
 import {useMemo} from 'react';
 import {Favourite} from 'src/assets/icons/Favourite.tsx';
-import {Exercise} from 'src/assets/icons/Exercise.tsx';
 import {Profile} from 'src/assets/icons/Profile.tsx';
 import {useTheme} from 'src/shared/lib/theme/hooks.ts';
 import {RouteProp} from '@react-navigation/native';
 import {Home} from 'src/assets/icons/Home.tsx';
 import {ThemeColors} from 'src/shared/lib/theme/types.ts';
 import {Text} from 'src/shared/ui';
+import {Diary} from 'src/assets/icons/Diary.tsx';
 
 const Tab = createBottomTabNavigator<TabNavigator>();
 
-type routing = 'main' | 'favourites' | 'exercises' | 'profile';
+type routing = 'main' | 'diary' | 'favourites' | 'profile';
 
 const tabData = {
   main: {
     icon: Home,
     label: 'Главная',
   },
+  diary: {
+    icon: Diary,
+    label: 'Дневник',
+  },
   favourites: {
     icon: Favourite,
     label: 'Избранное',
   },
-  exercises: {
-    icon: Exercise,
-    label: 'Упражнение',
-  },
   profile: {
     icon: Profile,
-    label: 'Главная',
+    label: 'Профиль',
   },
 };
 
@@ -65,7 +65,7 @@ const tabScreenOption = (
     paddingVertical: 3,
   },
   tabBarStyle: {
-    borderTopWidth: 0,
+    borderTopColor: colors.placeholder,
     backgroundColor: colors.strong_gray,
   },
 });
@@ -83,8 +83,8 @@ export const HomeNavigator = () => {
       })}
       initialRouteName="main">
       <Tab.Screen name="main" component={MainScreen} />
+      <Tab.Screen name="diary" component={DiaryScreen} />
       <Tab.Screen name="favourites" component={FavouritesScreen} />
-      <Tab.Screen name="exercises" component={ExercisesScreen} />
       <Tab.Screen name="profile" component={ProfileScreen} />
     </Tab.Navigator>
   );

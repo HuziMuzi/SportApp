@@ -3,7 +3,7 @@ import {View} from 'react-native';
 import {useSafeAreaInsets} from 'react-native-safe-area-context';
 import {MainTitle} from 'src/shared/ui';
 
-export const ExercisesScreen = () => {
+export const DiaryScreen = () => {
   const {top} = useSafeAreaInsets();
 
   return (

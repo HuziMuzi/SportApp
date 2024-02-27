@@ -11,6 +11,7 @@ export const s = StyleSheet.create({
   borderRight1: {borderRightWidth: 1},
   borderBottom1: {borderBottomWidth: 1},
   borderLeft1: {borderLeftWidth: 1},
+  borderRadius10: {borderRadius: 10},
   hidden: {display: 'none'},
   dimmed: {opacity: 0.5},
 
@@ -82,10 +83,12 @@ export const s = StyleSheet.create({
   pb20: {paddingBottom: 20},
   px5: {paddingHorizontal: 5},
   px16: {paddingHorizontal: 16},
+  py5: {paddingVertical: 5},
 
   // gaps
   rgp20: {rowGap: 20},
   gp20: {gap: 20},
+  gp5: {gap: 5},
   gp10: {gap: 10},
 
   // flex

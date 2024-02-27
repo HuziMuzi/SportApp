@@ -6,24 +6,34 @@ import {useTheme} from 'src/shared/lib/theme/hooks.ts';
 import {ClockFill} from 'src/assets/icons/ClockFill.tsx';
 import {s} from 'src/shared/lib';
 import {Favourite} from 'src/assets/icons/Favourite.tsx';
-import {Description} from 'src/components/ExerciseCard/Description.tsx';
+import {Content} from 'src/components/ExerciseCard/Content.tsx';
+import {MOCK_IMG_URI2} from 'src/shared/variables.ts';
 
 type Props = {};
 
 export const ExerciseCard = ({}: Props) => {
   const {colors} = useTheme();
   const [expanded, setExpanded] = useState(false);
-  const animation = useSharedValue(0);
   const [height, setHeight] = useState(0);
+  const heightContentAnim = useSharedValue(0);
+  const borderBottomAnim = useSharedValue(15);
 
-  const animatedStyles = useAnimatedStyle(() => {
-    animation.value = withTiming(expanded ? height : 0, {duration: 300});
+  const animatedContentStyles = useAnimatedStyle(() => {
+    heightContentAnim.value = withTiming(expanded ? height : 0, {duration: 300});
     return {
-      height: animation.value,
+      height: heightContentAnim.value,
       borderBottomLeftRadius: 15,
       borderBottomRightRadius: 15,
     };
   }, [height, expanded]);
+
+  const animatedCardStyles = useAnimatedStyle(() => {
+    borderBottomAnim.value = withTiming(expanded ? 0 : 15, {duration: expanded ? 0 : 350});
+    return {
+      borderBottomLeftRadius: borderBottomAnim.value,
+      borderBottomRightRadius: borderBottomAnim.value,
+    };
+  }, [expanded]);
 
   const toggleExpand = () => {
     setExpanded(!expanded);
@@ -31,53 +41,59 @@ export const ExerciseCard = ({}: Props) => {
 
   return (
     <View>
-      <Pressable
-        onPress={toggleExpand}
-        style={{
-          height: 76,
-          borderTopLeftRadius: 15,
-          borderTopRightRadius: 15,
-          borderBottomLeftRadius: expanded ? 0 : 15,
-          borderBottomRightRadius: expanded ? 0 : 15,
-          padding: 10,
-          flexDirection: 'row',
-          alignItems: 'center',
-          justifyContent: 'space-between',
-          backgroundColor: colors.strong_gray,
-        }}>
-        <Image
-          style={{width: 57, height: 46, borderRadius: 10}}
-          resizeMode="cover"
-          src={
-            'https://avatars.mds.yandex.net/i?id=32d87f5e118cab354090e3d5b01d50409db0801b-10792024-images-thumbs&ref=rim&n=33&w=480&h=321'
-          }
-        />
-        <Text m_p>Сисси - присед</Text>
-        <View style={[s.flexRow, s.gp10]}>
-          <TouchableOpacity
-            style={{backgroundColor: colors.accent3, padding: 7, borderRadius: 100}}>
-            {/*<Clock />*/}
-            <ClockFill />
-          </TouchableOpacity>
-          <TouchableOpacity
-            style={{backgroundColor: colors.accent3, padding: 7, borderRadius: 100}}>
-            {/*<Clock />*/}
-            <Favourite width={23} height={23} color={colors.main} />
-          </TouchableOpacity>
-        </View>
-        {/*<Icon name={expanded ? 'chevron-up' : 'chevron-down'} size={20} color={'white'} />*/}
+      <Pressable onPress={toggleExpand}>
+        <Animated.View
+          style={[
+            {
+              height: 76,
+              padding: 10,
+              borderTopLeftRadius: 15,
+              borderTopRightRadius: 15,
+
+              flexDirection: 'row',
+              alignItems: 'center',
+              backgroundColor: colors.strong_gray,
+              justifyContent: 'space-between',
+            },
+            animatedCardStyles,
+          ]}>
+          <Image
+            style={{width: 57, height: 46, borderRadius: 10}}
+            resizeMode="cover"
+            src={MOCK_IMG_URI2}
+          />
+          <Text m_p>Сисси - присед</Text>
+          <View style={[s.flexRow, s.gp10]}>
+            <TouchableOpacity
+              style={{backgroundColor: colors.accent3, padding: 7, borderRadius: 100}}>
+              <ClockFill />
+            </TouchableOpacity>
+            <TouchableOpacity
+              style={{backgroundColor: colors.accent3, padding: 7, borderRadius: 100}}>
+              <Favourite width={23} height={23} color={colors.main} />
+            </TouchableOpacity>
+          </View>
+        </Animated.View>
       </Pressable>
       <Animated.View
-        style={[{backgroundColor: colors.strong_gray, overflow: 'hidden'}, animatedStyles]}>
+        style={[
+          {
+            backgroundColor: colors.strong_gray,
+            overflow: 'hidden',
+            borderBottomLeftRadius: 15,
+            borderBottomRightRadius: 15,
+          },
+          animatedContentStyles,
+        ]}>
         <View
-          style={{position: 'absolute', width: '100%'}}
+          style={[s.absolute]}
           onLayout={e => {
             const layoutHeight = e.nativeEvent.layout.height;
             if (layoutHeight >= 0 && height !== layoutHeight) {
               setHeight(layoutHeight);
             }
           }}>
-          <Description height={height} onLayoutHeight={setHeight} />
+          <Content />
         </View>
       </Animated.View>
     </View>
