@@ -9,6 +9,7 @@ import {
   ViewStyle,
 } from 'react-native';
 import {Color} from 'src/shared/lib/theme/types';
+import {getNormalizedSizeWithPlatformOffset} from 'src/shared/lib/scaling.ts';
 
 export type Props =
   | {

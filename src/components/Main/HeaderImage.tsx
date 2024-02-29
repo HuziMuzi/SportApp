@@ -4,10 +4,11 @@ import {Text} from 'src/shared/ui';
 import {useSafeAreaInsets} from 'react-native-safe-area-context';
 import {useTheme} from 'src/shared/lib/theme/hooks.ts';
 import {s} from 'src/shared/lib';
+import {getNormalizedVerticalSizeWithPlatformOffset} from 'src/shared/lib/scaling.ts';
 
 export const HeaderImage = () => {
   const {top} = useSafeAreaInsets();
-  const height = 130 + top;
+  const height = getNormalizedVerticalSizeWithPlatformOffset(130 + top);
   const {colors} = useTheme();
 
   return (
@@ -25,7 +26,6 @@ export const HeaderImage = () => {
 
 const styles = StyleSheet.create({
   container: {
-    // position: 'absolute',
     width: '100%',
     overflow: 'hidden',
     borderBottomRightRadius: 30,
@@ -34,7 +34,7 @@ const styles = StyleSheet.create({
   },
   image: {
     width: '100%',
-    height: 200,
+    height: getNormalizedVerticalSizeWithPlatformOffset(200),
     position: 'absolute',
   },
   descriptionContainer: {

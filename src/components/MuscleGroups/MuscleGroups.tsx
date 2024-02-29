@@ -1,20 +1,19 @@
 import React from 'react';
-import {ScrollView, View} from 'react-native';
-import {useTheme} from 'src/shared/lib/theme/hooks.ts';
+import {View} from 'react-native';
 import {CardHorizontal} from 'src/components/MuscleGroups/CardHorizontal.tsx';
 import {CardVertical} from 'src/components/MuscleGroups/CardVertical.tsx';
 import {useTypedNavigation} from 'src/shared/lib/hooks/useTypeNavigation.ts';
+import {s} from 'src/shared/lib';
 
 type Props = {};
 
 export const MuscleGroups = ({}: Props) => {
-  const {colors} = useTheme();
   const {navigate} = useTypedNavigation();
 
   return (
-    <View style={{gap: 10}}>
+    <View style={s.gp10}>
       <CardHorizontal label="Ноги" onPress={() => navigate('legExercises')} />
-      <View style={{columnGap: 10, flexDirection: 'row'}}>
+      <View style={[s.gp10, s.flexRow]}>
         <CardVertical />
         <CardVertical />
       </View>

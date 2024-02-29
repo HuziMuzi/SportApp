@@ -1,7 +1,10 @@
 import React from 'react';
-import {TouchableOpacity} from 'react-native';
-import {useTheme} from 'src/shared/lib/theme/hooks.ts';
+import {StyleSheet, TouchableOpacity} from 'react-native';
+import {useThematicStyles, useTheme} from 'src/shared/lib/theme/hooks.ts';
 import {Text} from 'src/shared/ui';
+import {getNormalizedSizeWithPlatformOffset} from 'src/shared/lib/scaling.ts';
+import {s} from 'src/shared/lib';
+import {Color} from 'src/shared/lib/theme/types.ts';
 
 type Props = {
   label?: string;
@@ -9,20 +12,22 @@ type Props = {
 };
 
 export const CardHorizontal = ({label, onPress}: Props) => {
-  const {colors} = useTheme();
+  const {styles} = useThematicStyles(rawStyles);
 
   return (
-    <TouchableOpacity
-      onPress={onPress}
-      style={{
-        height: 110,
-        width: '100%',
-        backgroundColor: colors.strong_gray,
-        borderRadius: 10,
-        alignItems: 'center',
-        justifyContent: 'center',
-      }}>
+    <TouchableOpacity onPress={onPress} style={styles.container}>
       <Text>{label}</Text>
     </TouchableOpacity>
   );
 };
+
+const rawStyles = StyleSheet.create({
+  container: {
+    height: getNormalizedSizeWithPlatformOffset(100),
+    width: '100%',
+    backgroundColor: Color.strong_gray,
+    borderRadius: 10,
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+});

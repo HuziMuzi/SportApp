@@ -11,7 +11,7 @@ export const s = StyleSheet.create({
   borderRight1: {borderRightWidth: 1},
   borderBottom1: {borderBottomWidth: 1},
   borderLeft1: {borderLeftWidth: 1},
-  borderRadius10: {borderRadius: 10},
+  radius10: {borderRadius: 10},
   hidden: {display: 'none'},
   dimmed: {opacity: 0.5},
 
