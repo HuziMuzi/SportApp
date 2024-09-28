@@ -1,8 +1,8 @@
 import React, {useState} from 'react';
 import {RadioButtons, Text} from 'src/shared/ui';
 import {GENDER_DATA} from 'src/shared/lib/consts.ts';
-import {Card} from '@screens/Greeting/ui/Card.tsx';
-import {RoundLabel} from '@screens/Greeting/ui/RoundLabel.tsx';
+import {CardFrame} from 'src/shared/ui/CardFrame.tsx';
+import {RoundLabel} from '@screens/Greeting/RoundLabel.tsx';
 import {s} from 'src/shared/lib';
 import {Gender} from 'src/shared/services/types.ts';
 import SportApp from 'src/SportApp.ts';
@@ -19,7 +19,7 @@ export const GenderCard = ({}: Props) => {
   };
 
   return (
-    <Card>
+    <CardFrame>
       <RoundLabel label="1" />
       <Text m_p center>
         Для адаптации тренировок вы можете указать свой пол:
@@ -30,6 +30,6 @@ export const GenderCard = ({}: Props) => {
         value={gender}
         onChangeValue={changeGender}
       />
-    </Card>
+    </CardFrame>
   );
 };

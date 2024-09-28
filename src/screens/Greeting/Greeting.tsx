@@ -5,8 +5,8 @@ import {SafeAreaView} from 'src/components/SaveAreaView';
 import {ScrollView, StyleSheet, View} from 'react-native';
 import {s} from 'src/shared/lib';
 import {Button, MainTitle, Text} from 'src/shared/ui';
-import {GenderCard} from './widgets/GenderCard.tsx';
-import {DiaryCard} from './widgets/DiaryCard.tsx';
+import {GenderCard} from '../../widgets/GenderCard.tsx';
+import {DiaryCard} from '../../widgets/DiaryCard.tsx';
 import {Color} from 'src/shared/lib/theme/types.ts';
 
 export const GreetingScreen = () => {

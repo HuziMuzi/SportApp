@@ -1,53 +1,24 @@
 import React, {useState} from 'react';
-import {Image, TouchableOpacity, View} from 'react-native';
+import {Image, View} from 'react-native';
 import {Text} from 'src/shared/ui';
-import {useTheme} from 'src/shared/lib/theme/hooks.ts';
+import {s} from 'src/shared/lib';
+import {MOCK_IMG_URI} from 'src/shared/variables.ts';
+import {Tab} from 'src/components/ExerciseCard/Tab.tsx';
 
-type Props = {
-  height?: number;
-  onLayoutHeight?: (value: number) => void;
-};
+type Props = {};
+const IMG_HEIGHT = 184;
 
-export const Description = ({height, onLayoutHeight}: Props) => {
-  const {colors} = useTheme();
+export const Content = ({}: Props) => {
   const [switchTab, setSwitchTab] = useState(false);
 
   const toggleTab = () => setSwitchTab(!switchTab);
 
   return (
-    <View style={{padding: 10, gap: 10, width: '100%'}}>
-      <Image
-        style={{width: '100%', height: 184, borderRadius: 10}}
-        src={
-          'https://pumpmuscles.ru/wp-content/uploads/2016/04/fizicheskie-uprazhneniya-dlya-razvitiya-vseh-vidov-vyinoslivosti.jpg'
-        }
-      />
-      <View style={{flexDirection: 'row', gap: 10}}>
-        <TouchableOpacity
-          onPress={toggleTab}
-          style={{
-            borderRadius: 36,
-            height: 30,
-            alignItems: 'center',
-            justifyContent: 'center',
-            flex: 1,
-            backgroundColor: switchTab ? colors.main : colors.accent3,
-          }}>
-          <Text m_p2>Выполнение</Text>
-        </TouchableOpacity>
-        <TouchableOpacity
-          onPress={toggleTab}
-          style={{
-            borderRadius: 36,
-            height: 30,
-            alignItems: 'center',
-            justifyContent: 'center',
-            backgroundColor: !switchTab ? colors.main : colors.accent3,
-
-            flex: 1,
-          }}>
-          <Text m_p2>Подробности</Text>
-        </TouchableOpacity>
+    <View style={[s.p10, s.gp10]}>
+      <Image style={[s.w100pct, s.borderRadius10, {height: IMG_HEIGHT}]} src={MOCK_IMG_URI} />
+      <View style={[s.flexRow, s.gp10]}>
+        <Tab onPress={toggleTab} label="Выполнение" isActive={switchTab} />
+        <Tab onPress={toggleTab} label="Подробности" isActive={!switchTab} />
       </View>
       {!switchTab ? (
         <Text m_p2>
@@ -62,12 +33,11 @@ export const Description = ({height, onLayoutHeight}: Props) => {
           выталкивании таза вперед, поднимаемся. Колени до конца не разгибаем.
         </Text>
       ) : (
-        <View style={{gap: 5, flex: 1}}>
+        <View style={[s.gp5]}>
           <Text m_p2>
             <Text m_p2_bold>Задействованы: </Text>
             квадрицепс, ягодичные, приводящие, разгибатели поясницы, мышцы задней поверхности бедра.
           </Text>
-
           <Text m_p2>
             <Text m_p2_bold>Важно: </Text>
             Не стремимся отводить таз назад (наклоняясь корпусом вперед), концентрируясь на
