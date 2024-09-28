@@ -1,9 +1,9 @@
 import React, {useCallback, useState} from 'react';
 import {useSafeAreaInsets} from 'react-native-safe-area-context';
 import {FlatList, View} from 'react-native';
-import {MainTitle, RadioButtons} from 'src/shared/ui';
+import {RadioButtons} from 'src/shared/ui';
 import {FAVOURITES_TABS} from 'src/shared/lib/consts.ts';
-import {SearchInput} from 'src/components/SearchInput.tsx';
+import {SearchInput} from 'src/components/Inputs/SearchInput.tsx';
 import {ExerciseCard} from 'src/components/ExerciseCard/ExerciseCard.tsx';
 
 export const FavouritesScreen = () => {

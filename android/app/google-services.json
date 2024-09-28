@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "293445587008",
+    "project_id": "sportapp-d3df3",
+    "storage_bucket": "sportapp-d3df3.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:293445587008:android:cbf8be0d2e258c69ed8fa5",
+        "android_client_info": {
+          "package_name": "com.sportapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "293445587008-1ivus4neoaepp2e85e0vr22ofnfstnqd.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.sportapp",
+            "certificate_hash": "12a93d21477eac04184e6796b846091e79cdb562"
+          }
+        },
+        {
+          "client_id": "293445587008-ho2hkb52umbj86d8tlrodf2fg9oocplj.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyALYDmRon5L4sUiheCRQ__lRDKL0sHbvWU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "293445587008-ho2hkb52umbj86d8tlrodf2fg9oocplj.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -4,10 +4,11 @@ import {
   NativeStackNavigationOptions,
 } from '@react-navigation/native-stack';
 import {HomeNavigator} from '@screens/HomeNavigator.tsx';
-import {RootStackParamList} from 'types/types.ts';
+import {RootStackParamList, Routes} from 'types/types.ts';
 import {GreetingScreen} from '@screens/Greeting/Greeting.tsx';
 import {useTheme} from 'src/shared/lib/theme/hooks.ts';
 import {LegExercisesScreen} from '@screens/LegExercises.tsx';
+import {SingInScreen} from '@screens/SingIn.tsx';
 
 const RootStack = createNativeStackNavigator<RootStackParamList>();
 
@@ -15,12 +16,16 @@ const screenOptions: NativeStackNavigationOptions = {
   headerShown: false,
 };
 
-export function InnerApp(): React.JSX.Element {
+type Props = {
+  initRoute: Routes;
+};
+
+export function InnerApp({initRoute}: Props): React.JSX.Element {
   const {colors} = useTheme();
 
   return (
     <RootStack.Navigator
-      initialRouteName="greeting"
+      initialRouteName={Routes.SingIn}
       screenOptions={{
         headerStyle: {
           backgroundColor: colors.bg1,
@@ -31,12 +36,13 @@ export function InnerApp(): React.JSX.Element {
         },
       }}>
       <RootStack.Group screenOptions={screenOptions}>
-        <RootStack.Screen name="greeting" component={GreetingScreen} />
-        <RootStack.Screen name="home" component={HomeNavigator} />
+        <RootStack.Screen name={Routes.SingIn} component={SingInScreen} />
+        <RootStack.Screen name={Routes.Greeting} component={GreetingScreen} />
+        <RootStack.Screen name={Routes.Home} component={HomeNavigator} />
       </RootStack.Group>
 
       <RootStack.Screen
-        name="legExercises"
+        name={Routes.LegExercises}
         options={{headerTitle: 'Упражнения на спину'}}
         component={LegExercisesScreen}
       />

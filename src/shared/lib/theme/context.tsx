@@ -1,4 +1,4 @@
-import React, {createContext, memo, useCallback, useEffect, useState} from 'react';
+import React, {createContext, memo, useCallback, useState} from 'react';
 
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import {useColorScheme} from 'react-native';
@@ -26,6 +26,7 @@ interface Props {
 export const ThemeProvider = memo<Props>(props => {
   const systemTheme = useColorScheme() === 'dark' ? DARK_THEME : LIGHT_THEME;
   const [colors, setColor] = useState<ThemeColors>(DARK_THEME);
+
   const setSystem = useCallback(() => {
     setColor(systemTheme);
   }, [systemTheme]);

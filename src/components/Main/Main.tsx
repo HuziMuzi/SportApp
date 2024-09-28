@@ -11,7 +11,7 @@ import {MainTitle, Text} from 'src/shared/ui';
 import {useTypedNavigation} from 'src/shared/lib/hooks/useTypeNavigation.ts';
 import {HeaderImage} from 'src/components/Main/HeaderImage.tsx';
 import {s} from 'src/shared/lib';
-import {SearchInput} from 'src/components/SearchInput.tsx';
+import {SearchInput} from 'src/components/Inputs/SearchInput.tsx';
 import {MuscleGroups} from 'src/components/MuscleGroups/MuscleGroups.tsx';
 
 export const Main = () => {

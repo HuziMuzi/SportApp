@@ -9,7 +9,7 @@ export const GENDER_DATA = [
   },
   {
     label: 'Мужской',
-    value: 'Male',
+    value: 'male',
   },
 ];
 
