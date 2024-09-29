@@ -59,6 +59,7 @@ export const s = StyleSheet.create({
   mb5: {marginBottom: 5},
   mb10: {marginBottom: 10},
   mb20: {marginBottom: 20},
+  mv30: {marginVertical: 30},
 
   // paddings
   p2: {padding: 2},
@@ -97,6 +98,7 @@ export const s = StyleSheet.create({
   flex1: {flex: 1},
   flexGrow1: {flexGrow: 1},
   alignCenter: {alignItems: 'center'},
+  alignSlfCenter: {alignSelf: 'center'},
   alignBaseline: {alignItems: 'baseline'},
   justifyCenter: {justifyContent: 'center'},
   justifyBetween: {justifyContent: 'space-between'},
