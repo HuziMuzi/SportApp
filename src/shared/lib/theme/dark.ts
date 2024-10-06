@@ -1,6 +1,7 @@
 import {ThemeColors} from 'src/shared/lib/theme/types.ts';
 import {
   DARK_ACCENT1,
+  DARK_ACCENT2,
   DARK_ACCENT3,
   DARK_BG_1,
   DARK_DIMMED,
@@ -18,6 +19,7 @@ export const DARK_THEME: ThemeColors = {
   icon: DARK_ICON,
   main: DARK_MAIN,
   accent1: DARK_ACCENT1,
+  accent2: DARK_ACCENT2,
   accent3: DARK_ACCENT3,
   dimmed: DARK_DIMMED,
   gray: DARK_GRAY,

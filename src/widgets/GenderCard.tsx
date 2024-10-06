@@ -5,17 +5,16 @@ import {CardFrame} from 'src/shared/ui/CardFrame.tsx';
 import {RoundLabel} from '@screens/Greeting/RoundLabel.tsx';
 import {s} from 'src/shared/lib';
 import {Gender} from 'src/shared/services/types.ts';
-import SportApp from 'src/SportApp.ts';
 
 type Props = {};
 
 export const GenderCard = ({}: Props) => {
   const [gender, setGender] = useState<Gender>('unspecified');
 
-  const changeGender = (value: string) => {
+  const changeGender = async (value: string) => {
     const currentGender = value as Gender;
     setGender(currentGender);
-    SportApp.sessionService.saveInitUserData({gender: currentGender});
+    // await SportApp.sessionService.saveInitUserData({gender: currentGender});
   };
 
   return (

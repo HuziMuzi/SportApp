@@ -1,23 +1,42 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import {View} from 'react-native';
 import {useSafeAreaInsets} from 'react-native-safe-area-context';
-import {Button, MainTitle, Text} from 'src/shared/ui';
-import {InputLarge} from 'src/components/Inputs/InputLarge.tsx';
+import {MainTitle, Text} from 'src/shared/ui';
 import {useTheme} from 'src/shared/lib/theme/hooks.ts';
 import {s} from 'src/shared/lib';
-import SportApp from 'src/SportApp.ts';
-import {ButtonType} from 'src/shared/ui/Button/Button.tsx';
 import Apple from 'src/shared/assets/Apple.tsx';
 import Google from 'src/shared/assets/Google.tsx';
+import {SignInForm} from 'src/components/SignInForm/SignInForm.tsx';
+import SportApp from 'src/SportApp.ts';
+import {SessionStatus} from 'src/shared/services/types.ts';
+import {useTypedNavigation} from 'src/shared/lib/hooks/useTypeNavigation.ts';
+import {Routes} from 'types/types.ts';
+
+//TODO transfer
+type FormValue = {
+  email: string;
+  password: string;
+};
 
 export const SingInScreen = () => {
   const {top} = useSafeAreaInsets();
   const {colors} = useTheme();
+  const {navigate} = useTypedNavigation();
 
-  const onAuthStateChanged = async () => {
+  const onAuthStateChanged = async (data: FormValue) => {
+    const {email, password} = data;
+    console.log(data);
     await SportApp.sessionService.login({email: 'test@mail.ru', password: 'Qwerty!1'});
-    console.log('user data', SportApp.sessionService.getCurrentUser());
   };
+
+  useEffect(() => {
+    const subscription = SportApp.sessionService.subscribeStatus(status => {
+      if (status === SessionStatus.Authorized) {
+        navigate(Routes.Greeting);
+      }
+    });
+    return subscription.unsubscribe;
+  }, []);
 
   return (
     <View style={[{flex: 1, marginTop: top, paddingHorizontal: 16, paddingTop: 20}]}>
@@ -25,11 +44,7 @@ export const SingInScreen = () => {
         <MainTitle title="Вход" style={[s.mb10, s.alignSlfCenter]} />
       </View>
       <View style={[s.flex1]}>
-        <View style={[s.w100pct, s.gp20, s.mb20]}>
-          <InputLarge placeholder="логин" placeholderTextColor={colors.placeholder} />
-          <InputLarge placeholder="пароль" placeholderTextColor={colors.placeholder} />
-          <Button label="Войти" type={ButtonType.Large} onPress={onAuthStateChanged} />
-        </View>
+        <SignInForm onChange={onAuthStateChanged} />
         <View style={[{height: 1, backgroundColor: colors.accent1}, s.w100pct, s.mv30]} />
         <View style={[s.alignCenter, s.gp20]}>
           <Text>{'Через соцсеть'}</Text>

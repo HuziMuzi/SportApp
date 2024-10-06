@@ -27,6 +27,10 @@ export const DARK_DIMMED = '#0000007F';
 
 export const LIGHT_ACCENT1 = '#494242';
 export const DARK_ACCENT1 = '#494242';
+export const DARK_ACCENT10 = '#d46e3e';
+
+export const LIGHT_ACCENT2 = '#914b2a';
+export const DARK_ACCENT2 = '#914b2a';
 
 export const LIGHT_ACCENT3 = 'rgba(255,255,255,0.06)';
 export const DARK_ACCENT3 = 'rgba(255,255,255,0.06)';

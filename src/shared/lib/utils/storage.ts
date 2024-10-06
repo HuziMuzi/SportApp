@@ -12,7 +12,11 @@ const clearStorageItem = async (key: string) => {
   return await AsyncStorage.removeItem(key);
 };
 
+const getAllStorageItems = async () => {
+  return await AsyncStorage.getAllKeys();
+};
+
 const clearAllStorage = async () => {
   return AsyncStorage.clear();
 };
-export {setStorageItem, getStorageItem, clearStorageItem, clearAllStorage};
+export {setStorageItem, getStorageItem, clearStorageItem, clearAllStorage, getAllStorageItems};

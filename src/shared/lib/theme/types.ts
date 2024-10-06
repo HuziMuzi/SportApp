@@ -6,6 +6,7 @@ export interface ThemeColors {
   text: string;
   main: string;
   accent1: string;
+  accent2: string;
   accent3: string;
   dimmed: string;
   placeholder: string;
@@ -24,6 +25,7 @@ export enum Color {
   main = 'main',
   text = 'text',
   accent1 = 'accent1',
+  accent2 = 'accent2',
   accent3 = 'accent3',
   dimmed = 'dimmed',
   placeholder = 'placeholder',
