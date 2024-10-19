@@ -22,6 +22,9 @@ flipper_config = ENV['NO_FLIPPER'] == "1" ? FlipperConfiguration.disabled : Flip
 # right after `use_frameworks! :linkage => :static`
 $RNFirebaseAsStaticFramework = true
 
+# enable Video caching
+$RNVideoUseVideoCaching=true
+
 linkage = ENV['USE_FRAMEWORKS']
 if linkage != nil
   Pod::UI.puts "Configuring Pod with #{linkage}ally linked Frameworks".green

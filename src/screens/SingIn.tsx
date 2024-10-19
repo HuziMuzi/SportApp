@@ -18,6 +18,8 @@ type FormValue = {
   password: string;
 };
 
+const {sessionService} = SportApp;
+
 export const SingInScreen = () => {
   const {top} = useSafeAreaInsets();
   const {colors} = useTheme();
@@ -26,13 +28,15 @@ export const SingInScreen = () => {
   const onAuthStateChanged = async (data: FormValue) => {
     const {email, password} = data;
     console.log(data);
-    await SportApp.sessionService.login({email: 'test@mail.ru', password: 'Qwerty!1'});
+    await sessionService.login({email: 'test@mail.ru', password: 'Qwerty!1'});
   };
 
   useEffect(() => {
-    const subscription = SportApp.sessionService.subscribeStatus(status => {
+    const subscription = sessionService.subscribeStatus(status => {
       if (status === SessionStatus.Authorized) {
-        navigate(Routes.Greeting);
+        const user = sessionService.getCurrentUser();
+        console.log('user subscribe!', user);
+        navigate(user.gender ? Routes.Home : Routes.Greeting);
       }
     });
     return subscription.unsubscribe;

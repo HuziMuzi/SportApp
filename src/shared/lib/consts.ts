@@ -37,4 +37,5 @@ export const PROFILE_TABS = [
 
 export enum AsyncStorageKeys {
   Gender = 'gender',
+  User = 'user',
 }

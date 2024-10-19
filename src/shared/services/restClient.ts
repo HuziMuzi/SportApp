@@ -26,18 +26,15 @@ export class RestClient {
   login = async (params: any): Promise<UserCredential | undefined> => {
     return await this.loginWithEmailAndPassword(params?.email, params?.password);
   };
-  initLocalSettings = async () => {
-    const data: LocalSettings = {};
-    const gender = await getStorageItem(AsyncStorageKeys.Gender);
-    data.gender = gender as Gender | null;
-    return data;
+  initUserDataFromStorage = async () => {
+    return (await getStorageItem(AsyncStorageKeys.User)) || '{}';
   };
 
   saveInitUserData = async (data: User) => {
-    await setStorageItem('user', JSON.stringify(data));
+    await setStorageItem(AsyncStorageKeys.User, JSON.stringify(data));
     console.log(data);
   };
   getUserData = async () => {
-    return await getStorageItem('user');
+    return await getStorageItem(AsyncStorageKeys.User);
   };
 }

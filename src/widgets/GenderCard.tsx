@@ -1,12 +1,14 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import {RadioButtons, Text} from 'src/shared/ui';
 import {GENDER_DATA} from 'src/shared/lib/consts.ts';
 import {CardFrame} from 'src/shared/ui/CardFrame.tsx';
 import {RoundLabel} from '@screens/Greeting/RoundLabel.tsx';
 import {s} from 'src/shared/lib';
 import {Gender} from 'src/shared/services/types.ts';
+import SportApp from 'src/SportApp.ts';
 
 type Props = {};
+const {sessionService} = SportApp;
 
 export const GenderCard = ({}: Props) => {
   const [gender, setGender] = useState<Gender>('unspecified');
@@ -14,8 +16,14 @@ export const GenderCard = ({}: Props) => {
   const changeGender = async (value: string) => {
     const currentGender = value as Gender;
     setGender(currentGender);
-    // await SportApp.sessionService.saveInitUserData({gender: currentGender});
+    await sessionService.setUserData({gender: currentGender});
   };
+
+  useEffect(() => {
+    (async () => {
+      await sessionService.setUserData({gender});
+    })();
+  }, []);
 
   return (
     <CardFrame>
